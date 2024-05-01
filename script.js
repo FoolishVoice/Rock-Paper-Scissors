@@ -14,8 +14,10 @@ let playerScore = 0;
 let computerScore = 0;
 let tie = 0;
 
+let playerSelection = '';
+
 function playRound() {
-    let playerSelection = prompt('rock, paper or scissor?',' ').toLowerCase();
+//    let playerSelection = prompt('rock, paper or scissor?',' ').toLowerCase();
     const computerSelection = getComputerChoice();
     if ((playerSelection == 'rock') && (computerSelection == 'scissor')) {
         playerScore++;
@@ -50,22 +52,66 @@ function playRound() {
 
 }
  
+//This is adding 3 buttons as choice for R.P.S.
+let result = 'The results: ';
 
-function playGame() {
-    console.log(playRound());
+const body = document.querySelector("body");
 
-    console.log(playRound());
+const rock = document.createElement("button");
+const paper = document.createElement("button");
+const scissor = document.createElement("button");
+const div = document.createElement("div");
+const para = document.createElement("p");
 
-    console.log(playRound());
 
-    console.log(playRound());
+rock.addEventListener('click', () => {
+    playerSelection = 'rock';
+    result += playRound() + ", ";
+    return para.textContent = result;
+});
 
-    console.log(playRound());
+rock.textContent = "Rock";
+body.appendChild(rock);
+
+paper.addEventListener('click', () => {
+    playerSelection = 'paper';
+    result += playRound() + ", ";
+    return para.textContent = result;
+});
+
+paper.textContent = "Paper";
+body.appendChild(paper);
+
+scissor.addEventListener('click', () => {
+    playerSelection = 'scissor';
+    result += playRound() + ", ";
+    return para.textContent = result;
+});
+
+scissor.textContent = "Scissor";
+body.appendChild(scissor);
+
+
+
+
+div.appendChild(para);
+body.appendChild(div);
+
+// function playGame() {
+//    console.log(playRound());
+
+//    console.log(playRound());
+
+//    console.log(playRound());
+
+//    console.log(playRound());
+
+//    console.log(playRound());
 
     
 
-    console.log(endMessage())
-}
+//    console.log(endMessage())
+//}
 
 
 
@@ -80,4 +126,4 @@ function endMessage() {
 }
 
 
-playGame();
+// playGame();
