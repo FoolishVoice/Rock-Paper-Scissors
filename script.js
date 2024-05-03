@@ -19,7 +19,11 @@ let playerSelection = '';
 function playRound() {
 //    let playerSelection = prompt('rock, paper or scissor?',' ').toLowerCase();
     const computerSelection = getComputerChoice();
-    if ((playerSelection == 'rock') && (computerSelection == 'scissor')) {
+    
+    if ((playerScore == 5) || (computerScore == 5)) {
+        endMessage();
+    }
+    else if ((playerSelection == 'rock') && (computerSelection == 'scissor')){
         playerScore++;
         return 'You Win! Rock beats Scissor';
     }
@@ -49,7 +53,6 @@ function playRound() {
     else {
         return 'Invalid';
     }
-
 }
  
 //This is adding 3 buttons as choice for R.P.S.
@@ -117,11 +120,11 @@ body.appendChild(div);
 
 function endMessage() {
     if (playerScore > computerScore) {
-        return 'You\'ve Won the Game of Rock, Paper, Scissor!';
+        return alert('You\'ve Won the Game of Rock, Paper, Scissor with a score of 5 points');
     }   else if (playerScore < computerScore) {
-        return 'You\'ve Lost the Game of Rock, Paper, Scissor. Better luck next time.';
+        return alert('You\'ve Lost the Game of Rock, Paper, Scissor. Better luck next time.');
     }   else if (playerScore === computerScore) {
-        return 'You\'ve Tied';
+        return alert('You\'ve Tied');
     } 
 }
 
